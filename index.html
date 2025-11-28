@@ -18,14 +18,14 @@
         body {
             font-family: 'Cormorant Garamond', serif;
             color: var(--starlight);
-            line-height: 1.8;
+            line-height: 1.9;
             min-height: 100vh;
             background: linear-gradient(to bottom, #0b1220 0%, #0f1c36 40%, #0e2638 70%, #0b2e3d 100%);
             position: relative;
             overflow-x: hidden;
         }
 
-        /* Still painterly night sky + subtle horizon glow */
+        /* Still painterly sky + horizon glow */
         body::before {
             content: '';
             position: fixed;
@@ -73,13 +73,14 @@
             border-radius: 50%;
             box-shadow: 0 0 8px 2px #f4e1b8;
             opacity: 0;
+            animation: twinkle 18s infinite linear;
         }
-        .firefly:nth-child(1) { top: 15%; left: 12%; animation: twinkle 18s infinite 2s; }
-        .firefly:nth-child(2) { top: 38%; left: 78%; animation: twinkle 22s infinite 7s; }
-        .firefly:nth-child(3) { top: 62%; left: 35%; animation: twinkle 25s infinite 12s; }
-        .firefly:nth-child(4) { top: 25%; left: 90%; animation: twinkle 20s infinite 4s; }
-        .firefly:nth-child(5) { top: 80%; left: 20%; animation: twinkle 28s infinite 9s; }
-        .firefly:nth-child(6) { top: 45%; left: 55%; animation: twinkle 19s infinite 15s; }
+        .firefly:nth-child(1) { top:15%; left:12%; animation-delay:2s; }
+        .firefly:nth-child(2) { top:38%; left:78%; animation-delay:7s; }
+        .firefly:nth-child(3) { top:62%; left:35%; animation-delay:12s; }
+        .firefly:nth-child(4) { top:25%; left:90%; animation-delay:4s; }
+        .firefly:nth-child(5) { top:80%; left:20%; animation-delay:9s; }
+        .firefly:nth-child(6) { top:45%; left:55%; animation-delay:15s; }
 
         @keyframes twinkle {
             0%,100% { opacity:0; transform:scale(0); }
@@ -89,7 +90,7 @@
             60% { opacity:0.8; transform:scale(1); }
         }
 
-        header, section, footer { position: relative; z-index: 2; }
+        header, main, footer { position: relative; z-index: 2; }
 
         header {
             min-height: 100vh;
@@ -147,46 +148,83 @@
             transform: translateY(-6px);
         }
 
-        section#about {
-            padding: 10rem 5% 8rem;
-            max-width: 1000px;
+        main {
+            max-width: 860px;
             margin: 0 auto;
+            padding: 10rem 5% 8rem;
             text-align: center;
         }
-        #about h2 {
+        .chapter-title {
             font-family: 'Amatic SC', cursive;
-            font-size: clamp(2.8rem, 7vw, 4rem);
+            font-size: clamp(3rem, 8vw, 4.5rem);
             color: var(--gold);
-            margin-bottom: 2.5rem;
+            margin: 2rem 0 3rem;
+            text-shadow: 0 0 30px rgba(212,175,106,0.4);
         }
-        #about p {
-            font-size: clamp(1.2rem, 3.5vw, 1.5rem);
-            margin: 2rem auto;
-            max-width: 800px;
+        .chapter {
+            font-size: clamp(1.25rem, 4vw, 1.5rem);
+            text-align: left;
+            background: rgba(11,14,23,0.6);
+            padding: 3.5rem 4rem;
+            border-radius: 20px;
+            backdrop-filter: blur(6px);
+            box-shadow: 0 10px 40px rgba(0,0,0,0.4);
+            margin: 4rem auto;
+            max-width: 760px;
+        }
+        .chapter p {
+            margin-bottom: 1.8rem;
             opacity: 0.95;
+        }
+        .chapter p:first-of-type::first-letter {
+            font-size: 3.8em;
+            line-height: 0.8;
+            float: left;
+            margin-right: 0.2em;
+            color: var(--gold);
+            font-family: 'Cinzel Decorative', cursive;
+        }
+
+        .continue {
+            text-align: center;
+            font-style: italic;
+            font-size: 1.4rem;
+            margin: 4rem 0;
+            opacity: 0.9;
+        }
+        .continue a {
+            display: inline-block;
+            margin-top: 1.5rem;
+            padding: 1rem 3rem;
+            background: var(--gold);
+            color: var(--midnight);
+            border-radius: 50px;
+            text-decoration: none;
+            font-family: 'Amatic SC', cursive;
+            font-weight: 700;
+            box-shadow: 0 0 40px rgba(212,175,106,0.7);
         }
 
         footer {
             text-align: center;
-            padding: 4rem 2rem;
-            background: rgba(15,26,46,0.7);
-            font-size: 1rem;
-            letter-spacing: 1px;
+            padding: 5rem 2rem 3rem;
+            background: rgba(15,26,46,0.8);
         }
         .social-links a {
             color: var(--gold);
-            margin: 0 1.2rem;
-            font-size: 1.4rem;
+            margin: 0 1.4rem;
+            font-size: 1.5rem;
             transition: all 0.3s;
         }
         .social-links a:hover {
             color: var(--soft-gold);
-            transform: translateY(-3px);
-            text-shadow: 0 0 15px rgba(244,225,184,0.6);
+            transform: translateY(-4px);
+            text-shadow: 0 0 20px rgba(244,225,184,0.7);
         }
 
         @media (max-width: 768px) {
             .cta a { display: block; margin: 1.2rem auto; max-width: 300px; }
+            .chapter { padding: 2.5rem 2rem; }
         }
     </style>
 </head>
@@ -194,12 +232,8 @@
 
     <div class="stars"></div>
     <div class="fireflies">
-        <div class="firefly"></div>
-        <div class="firefly"></div>
-        <div class="firefly"></div>
-        <div class="firefly"></div>
-        <div class="firefly"></div>
-        <div class="firefly"></div>
+        <div class="firefly"></div><div class="firefly"></div><div class="firefly"></div>
+        <div class="firefly"></div><div class="firefly"></div><div class="firefly"></div>
     </div>
 
     <header>
@@ -213,22 +247,41 @@
         </div>
 
         <div class="cta">
-            <a href="#about">Begin the Journey</a>
+            <a href="#chapter1">Begin the Journey</a>
             <a href="#">Pre-order Now</a>
         </div>
     </header>
 
-    <section id="about">
-        <h2>About the Story</h2>
-        <p>
-            In a world where the sky sometimes forgets its lullabies, twelve-year-old Elias draws maps of places that have never been, 
-            and eleven-year-old Mara tends lanterns that remember every dream ever dreamed.
-        </p>
-        <p>
-            When the last true star begins to fade, they board a ship with sails woven from glass and moonlight. 
-            Together they must sail beyond the edge of every charted sea to find the Song that holds the heavens together — before silence falls forever.
-        </p>
-    </section>
+    <main>
+        <h2 class="chapter-title" id="chapter1">The Cartographer’s Question</h2>
+
+        <article class="chapter">
+            <p>By the time Elias learned to read the creases in a map like a lover reads a face, his hands smelled of salt and old ink. He was neither scholar nor sailor alone; he was a cartographer who could listen to paper and make it speak.</p>
+
+            <p>In a small port where gulls left secrets on rooftops—Clovelly, though the name on no chart felt quite right any longer—Elias met a captain who owned a ship stitched from glass and whale-bone: the Glass-Sailed, a vessel that caught starlight and folded it into sails.</p>
+
+            <p>The captain was tall and quiet, with eyes the colour of tidepools at twilight. He carried no letters of marque, no royal commission, only a single rolled chart that refused to stay flat. When Elias asked where they were bound, the captain unrolled the chart just enough to show a blank space where the world simply ended.</p>
+
+            <p>Then he said the only thing that ever truly mattered:</p>
+
+            <p style="text-align:center; font-style:italic; margin:3rem 0; font-size:1.4em; color:var(--soft-gold);">
+                “We go where the compass forgets.”
+            </p>
+
+            <p>Elias felt the sentence settle inside his ribs like a second heartbeat. He looked at the Glass-Sailed rocking gently against the ancient stone quay, her translucent sails catching the last of the sun and scattering it across the cobbles in soft shards of rose and gold. Somewhere inside the hull a lantern hummed a note too low for human ears and too high for the heart to ignore.</p>
+
+            <p>He thought of every map he had ever drawn—every careful coastline, every mountain measured and named—and realised they had all been love letters to a world that was already leaving.</p>
+
+            <p>Without another word he stepped aboard.</p>
+
+            <p>The ropes slipped from the bollards of their own accord. The harbour gulls rose in a sudden white cloud, as though the sky itself had taken a breath. And the Glass-Sailed Ship, quiet as forgiveness, turned her prow toward the open water where north was only a suggestion and the stars were just beginning to remember their own names.</p>
+        </article>
+
+        <div class="continue">
+            <p>The Glass-Sailed Ship is waiting beyond this page.<br>Sail the rest of the voyage with Elias and Mara.</p>
+            <a href="#">Pre-order Now</a>
+        </div>
+    </main>
 
     <footer>
         <p>© 2025 • The Cartographer and the Glass-Sailed Ship • A luminous middle-grade fantasy • Coming Spring 2026</p>
