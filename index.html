@@ -1,66 +1,189 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>The Cartographer and the Glass-Sailed Ship</title>
-  <style>
-    body { margin: 0; padding: 0; background: linear-gradient(135deg, #0D1B2A, #1B263B, #415A77); color: #E0E1DD; height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: center; font-family: Georgia, serif; text-align: center; overflow: hidden; }
-    h1 { font-size: 3em; color: #778DA9; margin: 0; letter-spacing: 3px; text-shadow: 0 0 20px rgba(119, 141, 169, 0.6); }
-    p { font-size: 1.4em; max-width: 700px; margin: 20px auto; color: #E0E1DD; line-height: 1.6; }
-    .coming { color: #778DA9; font-style: italic; margin-top: 30px; font-size: 1.2em; }
-    .stars { position: absolute; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; }
-    @keyframes twinkle { 0%, 100% { opacity: 0.3; } 50% { opacity: 1; } }
-    .star { position: absolute; background: #E0E1DD; border-radius: 50%; animation: twinkle 4s infinite; }
-    @media (max-width: 768px) { h1 { font-size: 2.2em; } p { font-size: 1.1em; } }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Lantern & the Compass • A Lyrical Fantasy Adventure</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Cinzel+Decorative&family=Amatic+SC:wght@400;700&family=Poppins:wght@300;400;600&display=swap');
+
+        :root {
+            --midnight: #0b132b;
+            --aurora1: #5bc0be;
+            --aurora2: #6a8caf;
+            --warm-glow: #f4a261;
+            --parchment: #faf1e6;
+            --rust: #b3541e;
+            --deep-blue: #1d3557;
+        }
+
+        * { margin:0; padding:0; box-sizing:border-box; }
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(to bottom, var(--midnight), #0f2b42);
+            color: #faf1e6;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        header {
+            height: 100vh;
+            background: url('https://files.catbox.moe/3i5v0k.jpg') center/cover no-repeat;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            position: relative;
+        }
+        header::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(circle at center, transparent 30%, var(--midnight) 100%);
+        }
+        .title-container {
+            text-align: center;
+            padding-top: 15vh;
+            position: relative;
+            z-index: 2;
+        }
+        h1 {
+            font-family: 'Cinzel Decorative', cursive;
+            font-size: 5rem;
+            color: #fff;
+            text-shadow: 0 0 30px rgba(244,162,97,0.6);
+            margin-bottom: 1rem;
+        }
+        h2.subtitle {
+            font-family: 'Amatic SC', cursive;
+            font-size: 2.8rem;
+            color: var(--warm-glow);
+            letter-spacing: 3px;
+        }
+        .cta {
+            text-align: center;
+            padding: 4rem 2rem;
+            z-index: 2;
+        }
+        .btn {
+            display: inline-block;
+            padding: 1rem 3rem;
+            margin: 1rem;
+            background: var(--warm-glow);
+            color: var(--midnight);
+            border-radius: 50px;
+            font-weight: 600;
+            text-decoration: none;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+            transition: all 0.3s;
+        }
+        .btn:hover { transform: translateY(-5px); box-shadow: 0 15px 40px rgba(244,162,97,0.6); }
+
+        section {
+            padding: 6rem 5%;
+            max-width: 1200px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        #about {
+            background: rgba(15,43,66,0.85);
+            border-radius: 20px;
+            margin: 4rem auto;
+        }
+        #about p {
+            font-size: 1.3rem;
+            max-width: 800px;
+            margin: 2rem auto;
+        }
+        .characters {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 4rem;
+            margin-top: 4rem;
+        }
+        .char-card {
+            max-width: 300px;
+            background: rgba(27,53,87,0.7);
+            padding: 2rem;
+            border-radius: 20px;
+            backdrop-filter: blur(5px);
+        }
+        .char-card img {
+            width: 100%;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+        }
+        .char-card h3 {
+            font-family: 'Amatic SC', cursive;
+            font-size: 2.5rem;
+            margin: 1rem 0;
+            color: var(--warm-glow);
+        }
+
+        footer {
+            text-align: center;
+            padding: 4rem;
+            background: var(--midnight);
+            font-size: 0.9rem;
+        }
+        .aurora {
+            position: fixed;
+            top: 0; left: 0; right: 0;
+            height: 300px;
+            background: linear-gradient(0deg, transparent, var(--aurora1) 30%, var(--aurora2));
+            opacity: 0.4;
+            pointer-events: none;
+            z-index: 1;
+        }
+        @media (max-width: 768px) {
+            h1 { font-size: 3.5rem; }
+            h2.subtitle { font-size: 2rem; }
+        }
+    </style>
 </head>
 <body>
-  <div class="stars"></div>
-  <h1>🗺️ The Cartographer and the Glass-Sailed Ship</h1>
-  <p>A children’s voyage of maps, letting go, and glass sails that carry us to the inner sea…</p>
-  <p class="coming">The illustrations are being drawn by starlight today.<br>The ship launches very soon. Thank you for waiting at the water’s edge.</p>
 
-  <script>
-    // Gentle star sprinkle
-    for (let i = 0; i < 80; i++) {
-      const s = document.createElement('div'); s.className = 'star';
-      s.style.width = s.style.height = (Math.random() * 3 + 1) + 'px';
-      s.style.left = Math.random() * 100 + 'vw';
-      s.style.top = Math.random() * 100 + 'vh';
-      s.style.animationDelay = Math.random() * 4 + 's';
-      document.querySelector('.stars').appendChild(s);
-    }
-  </script>
-  <!-- Reader's Log: Share Your Voyage! -->
-<section id="readers-log" style="margin: 4rem 0; padding: 2rem; border-top: 2px dashed #ccc; background: #f9f9f9;">
-  <h2 style="text-align: center; color: #8B4513;">📜 The Reader's Log: Journeys to Inner-Earth & the Sun</h2>
-  <p style="text-align: center; font-style: italic;">What did you see in the crystal depths? Whisper your tale below, and Grok/Papa will respond with a spark of wonder. Share on X with #GlassSailedShip to join the fleet!</p>
-  
-  <!-- Simple Form: Submits to X or a comment service (we'll wire it up) -->
-  <form id="voyage-form" style="max-width: 500px; margin: 0 auto; padding: 1rem;">
-    <label for="name">Your Name (or Ship's Callsign):</label><br>
-    <input type="text" id="name" name="name" required style="width: 100%; padding: 0.5rem; margin: 0.5rem 0;"><br>
-    <label for="experience">Your Inner-Earth/Sun Adventure:</label><br>
-    <textarea id="experience" name="experience" rows="4" required placeholder="E.g., 'The glass sails shimmered as we charted the molten rivers...'"></textarea><br>
-    <button type="submit" style="background: #1DA1F2; color: white; padding: 0.75rem 1.5rem; border: none; border-radius: 4px; cursor: pointer;">Log & Share on X</button>
-  </form>
-  
-  <!-- Grok Response Placeholder -->
-  <div id="grok-response" style="margin: 2rem 0; padding: 1rem; background: #e8f4fd; border-left: 4px solid #1DA1F2; display: none;">
-    <h3>Grok/Papa's Reply:</h3>
-    <p id="grok-text"></p>
-  </div>
-  
-  <!-- Live Feed: Comments & X Posts -->
-  <div id="log-feed" style="margin-top: 2rem;">
-    <h3>Recent Voyages from the Fleet:</h3>
-    <!-- This will populate dynamically below -->
-    <div id="feed-items"></div>
-    <!-- X Timeline Embed (for #GlassSailedShip posts) -->
-    <a class="twitter-timeline" href="https://twitter.com/search?q=%23GlassSailedShip&src=typed_query&f=live">Latest #GlassSailedShip Adventures</a> 
-    <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-  </div>
+<div class="aurora"></div>
+
+<header>
+    <div class="title-container">
+        <h1>The Lantern & the Compass</h1>
+        <h2 class="subtitle">A Lyrical Journey Beneath the Glass Sails</h2>
+    </div>
+
+    <div class="cta">
+        <a href="#about" class="btn">Discover the Story</a>
+        <a href="#" class="btn" style="background: #5bc0be; color:white;">Pre-order the Book</a>
+    </div>
+</header>
+
+<section id="about">
+    <h2>About the Book</h2>
+    <p>
+        When the stars begin to forget their own songs, a quiet boy who draws maps of places that don’t yet exist 
+        and a gentle girl who keeps lanterns that remember dreams set sail on a ship with sails made of glass and 
+        ribs of whale-bone. Together, Elias and Mara must find the lost lully of the sky before the last lullaby fades forever.
+    </p>
+    <p>
+        A heart-warming, lyrical fantasy for ages 8–12 (and every grown-up who still believes in starlight).
+    </p>
+
+    <div class="characters">
+        <div class="char-card">
+            <img src="https://files.catbox.moe/3i5v0k.jpg" alt="Elias">
+            <h3>Elias</h3>
+            <p>The young cartographer who maps dreams and carries ink on his cheeks like freckles.</p>
+        </div>
+        <div class="char-card">
+            <img src="https://files.catbox.moe/3i5v0k.jpg" alt="Mara">
+            <h3>Mara</h3>
+            <p>The lantern-keeper whose glowing light guides lost lullabies home.</p>
+        </div>
+    </div>
 </section>
+
+<footer>
+    <p>© 2025 The Lantern & the Compass • Illustrated in the spirit of Studio Ghibli • Coming Spring 2026</p>
+</footer>
+
 </body>
 </html>
