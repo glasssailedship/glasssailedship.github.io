@@ -3,186 +3,167 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Lantern & the Compass • A Lyrical Fantasy Adventure</title>
+    <title>The Cartographer and the Glass-Sailed Ship</title>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Cinzel+Decorative&family=Amatic+SC:wght@400;700&family=Poppins:wght@300;400;600&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700&family=Amatic+SC:wght@400;700&family=Cormorant+Garamond:wght@300;400;600&display=swap');
 
         :root {
-            --midnight: #0b132b;
-            --aurora1: #5bc0be;
-            --aurora2: #6a8caf;
-            --warm-glow: #f4a261;
-            --parchment: #faf1e6;
-            --rust: #b3541e;
-            --deep-blue: #1d3557;
+            --midnight: #0b0e17;
+            --deep-sea: #121a2e;
+            --gold: #d4af6a;
+            --soft-gold: #f4e1b8;
+            --starlight: #fffbe6;
         }
 
         * { margin:0; padding:0; box-sizing:border-box; }
         body {
-            font-family: 'Poppins', sans-serif;
-            background: linear-gradient(to bottom, var(--midnight), #0f2b42);
-            color: #faf1e6;
-            line-height: 1.6;
-            overflow-x: hidden;
+            font-family: 'Cormorant Garamond', serif;
+            background: var(--midnight);
+            color: var(--starlight);
+            line-height: 1.8;
+            min-height: 100vh;
         }
+
         header {
-            height: 100vh;
-            background: url('https://files.catbox.moe/3i5v0k.jpg') center/cover no-repeat;
+            min-height: 100vh;
+            background: linear-gradient(135deg, #0b0e17 0%, #1a2345 70%);
             display: flex;
             flex-direction: column;
             justify-content: space-between;
+            text-align: center;
+            padding: 10vh 5% 5vh;
             position: relative;
+            overflow: hidden;
         }
         header::before {
-            content: '';
+            content: '✦ ✦ ✦';
             position: absolute;
-            inset: 0;
-            background: radial-gradient(circle at center, transparent 30%, var(--midnight) 100%);
+            top: 0; left: 0; right: 0; bottom: 0;
+            font-size: 3rem;
+            color: rgba(244,225,184,0.08);
+            letter-spacing: 4rem;
+            animation: float 20s infinite;
+            pointer-events: none;
         }
-        .title-container {
-            text-align: center;
-            padding-top: 15vh;
-            position: relative;
-            z-index: 2;
-        }
-        h1 {
+        @keyframes float { 0%,100% {transform:translateY(0)} 50% {transform:translateY(-30px)} }
+
+        .title-box h1 {
             font-family: 'Cinzel Decorative', cursive;
-            font-size: 5rem;
-            color: #fff;
-            text-shadow: 0 0 30px rgba(244,162,97,0.6);
-            margin-bottom: 1rem;
+            font-size: 6rem;
+            color: var(--gold);
+            text-shadow: 0 0 50px rgba(212,175,106,0.5);
+            letter-spacing: 10px;
+            line-height: 1.1;
         }
-        h2.subtitle {
+        .subtitle {
             font-family: 'Amatic SC', cursive;
-            font-size: 2.8rem;
-            color: var(--warm-glow);
-            letter-spacing: 3px;
+            font-size: 2.6rem;
+            color: var(--soft-gold);
+            margin: 1.5rem 0 2rem;
         }
-        .cta {
-            text-align: center;
-            padding: 4rem 2rem;
-            z-index: 2;
+        .tagline {
+            font-size: 1.5rem;
+            font-style: italic;
+            max-width: 800px;
+            margin: 0 auto;
+            opacity: 0.9;
         }
+
+        .cta { padding: 3rem 0; }
         .btn {
             display: inline-block;
-            padding: 1rem 3rem;
-            margin: 1rem;
-            background: var(--warm-glow);
-            color: var(--midnight);
+            padding: 1.1rem 3.5rem;
+            margin: 0 1rem;
+            background: transparent;
+            color: var(--gold);
+            border: 2px solid var(--gold);
             border-radius: 50px;
-            font-weight: 600;
+            font-family: 'Amatic SC', cursive;
+            font-size: 1.7rem;
+            font-weight: 700;
             text-decoration: none;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.4);
-            transition: all 0.3s;
+            letter-spacing: 2px;
+            transition: all 0.4s;
+            box-shadow: 0 0 25px rgba(212,175,106,0.3);
         }
-        .btn:hover { transform: translateY(-5px); box-shadow: 0 15px 40px rgba(244,162,97,0.6); }
+        .btn:hover {
+            background: var(--gold);
+            color: var(--midnight);
+            box-shadow: 0 0 50px rgba(212,175,106,0.8);
+            transform: translateY(-5px);
+        }
 
         section {
-            padding: 6rem 5%;
-            max-width: 1200px;
+            padding: 8rem 5%;
+            max-width: 1000px;
             margin: 0 auto;
             text-align: center;
         }
         #about {
-            background: rgba(15,43,66,0.85);
+            background: rgba(18,26,46,0.7);
             border-radius: 20px;
-            margin: 4rem auto;
+            padding: 4rem;
+            backdrop-filter: blur(6px);
+        }
+        #about h2 {
+            font-family: 'Amatic SC', cursive;
+            font-size: 3.5rem;
+            color: var(--gold);
+            margin-bottom: 2rem;
         }
         #about p {
-            font-size: 1.3rem;
+            font-size: 1.4rem;
+            margin: 1.8rem auto;
             max-width: 800px;
-            margin: 2rem auto;
-        }
-        .characters {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 4rem;
-            margin-top: 4rem;
-        }
-        .char-card {
-            max-width: 300px;
-            background: rgba(27,53,87,0.7);
-            padding: 2rem;
-            border-radius: 20px;
-            backdrop-filter: blur(5px);
-        }
-        .char-card img {
-            width: 100%;
-            border-radius: 15px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
-        }
-        .char-card h3 {
-            font-family: 'Amatic SC', cursive;
-            font-size: 2.5rem;
-            margin: 1rem 0;
-            color: var(--warm-glow);
         }
 
         footer {
             text-align: center;
-            padding: 4rem;
-            background: var(--midnight);
-            font-size: 0.9rem;
+            padding: 4rem 2rem;
+            background: var(--deep-sea);
+            font-size: 1rem;
+            letter-spacing: 1px;
         }
-        .aurora {
-            position: fixed;
-            top: 0; left: 0; right: 0;
-            height: 300px;
-            background: linear-gradient(0deg, transparent, var(--aurora1) 30%, var(--aurora2));
-            opacity: 0.4;
-            pointer-events: none;
-            z-index: 1;
-        }
+
         @media (max-width: 768px) {
-            h1 { font-size: 3.5rem; }
-            h2.subtitle { font-size: 2rem; }
+            .title-box h1 { font-size: 4rem; letter-spacing: 5px; }
+            .subtitle { font-size: 2rem; }
+            .btn { font-size: 1.4rem; padding: 1rem 2rem; display: block; margin: 1rem auto; max-width: 280px; }
         }
     </style>
 </head>
 <body>
 
-<div class="aurora"></div>
-
 <header>
-    <div class="title-container">
-        <h1>The Lantern & the Compass</h1>
-        <h2 class="subtitle">A Lyrical Journey Beneath the Glass Sails</h2>
+    <div class="title-box">
+        <h1>The Cartographer<br>and the<br>Glass-Sailed Ship</h1>
+        <p class="subtitle">A Lyrical Fantasy for Dreamers of All Ages</p>
+        <p class="tagline">
+            Where maps whisper secrets and stars stitch dreams,<br>
+            one voyage redefines the heart’s true north.
+        </p>
     </div>
 
     <div class="cta">
-        <a href="#about" class="btn">Discover the Story</a>
-        <a href="#" class="btn" style="background: #5bc0be; color:white;">Pre-order the Book</a>
+        <a href="#about" class="btn">Begin the Journey</a>
+        <a href="#" class="btn">Pre-order Now</a>
     </div>
 </header>
 
 <section id="about">
-    <h2>About the Book</h2>
+    <h2>About the Story</h2>
     <p>
-        When the stars begin to forget their own songs, a quiet boy who draws maps of places that don’t yet exist 
-        and a gentle girl who keeps lanterns that remember dreams set sail on a ship with sails made of glass and 
-        ribs of whale-bone. Together, Elias and Mara must find the lost lully of the sky before the last lullaby fades forever.
+        In a world where the sky sometimes forgets its lullabies, twelve-year-old Elias draws maps of places that have never been, 
+        and eleven-year-old Mara tends lanterns that remember every dream ever dreamed.
     </p>
     <p>
-        A heart-warming, lyrical fantasy for ages 8–12 (and every grown-up who still believes in starlight).
+        When the last true star begins to fade, they board a ship with sails woven from glass and moonlight. 
+        Together they must sail beyond the edge of every charted sea to find the Song that holds the heavens together — before silence falls forever.
     </p>
-
-    <div class="characters">
-        <div class="char-card">
-            <img src="https://files.catbox.moe/3i5v0k.jpg" alt="Elias">
-            <h3>Elias</h3>
-            <p>The young cartographer who maps dreams and carries ink on his cheeks like freckles.</p>
-        </div>
-        <div class="char-card">
-            <img src="https://files.catbox.moe/3i5v0k.jpg" alt="Mara">
-            <h3>Mara</h3>
-            <p>The lantern-keeper whose glowing light guides lost lullabies home.</p>
-        </div>
-    </div>
 </section>
 
 <footer>
-    <p>© 2025 The Lantern & the Compass • Illustrated in the spirit of Studio Ghibli • Coming Spring 2026</p>
+    <p>© 2025 • The Cartographer and the Glass-Sailed Ship • A luminous middle-grade fantasy • Coming Spring 2026</p>
 </footer>
 
 </body>
