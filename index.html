@@ -25,7 +25,6 @@
             overflow-x: hidden;
         }
 
-        /* Still painterly sky + horizon glow */
         body::before {
             content: '';
             position: fixed;
@@ -73,14 +72,13 @@
             border-radius: 50%;
             box-shadow: 0 0 8px 2px #f4e1b8;
             opacity: 0;
-            animation: twinkle 18s infinite linear;
         }
-        .firefly:nth-child(1) { top:15%; left:12%; animation-delay:2s; }
-        .firefly:nth-child(2) { top:38%; left:78%; animation-delay:7s; }
-        .firefly:nth-child(3) { top:62%; left:35%; animation-delay:12s; }
-        .firefly:nth-child(4) { top:25%; left:90%; animation-delay:4s; }
-        .firefly:nth-child(5) { top:80%; left:20%; animation-delay:9s; }
-        .firefly:nth-child(6) { top:45%; left:55%; animation-delay:15s; }
+        .firefly:nth-child(1) { top:15%; left:12%; animation: twinkle 18s infinite 2s; }
+        .firefly:nth-child(2) { top:38%; left:78%; animation: twinkle 22s infinite 7s; }
+        .firefly:nth-child(3) { top:62%; left:35%; animation: twinkle 25s infinite 12s; }
+        .firefly:nth-child(4) { top:25%; left:90%; animation: twinkle 20s infinite 4s; }
+        .firefly:nth-child(5) { top:80%; left:20%; animation: twinkle 28s infinite 9s; }
+        .firefly:nth-child(6) { top:45%; left:55%; animation: twinkle 19s infinite 15s; }
 
         @keyframes twinkle {
             0%,100% { opacity:0; transform:scale(0); }
@@ -111,19 +109,8 @@
         }
         .title-box h1 span { font-size: 0.56em; letter-spacing: 4px; opacity: 0.9; }
 
-        .subtitle {
-            font-family: 'Amatic SC', cursive;
-            font-size: clamp(2rem, 6vw, 3rem);
-            color: var(--soft-gold);
-            margin: 1rem 0 1.8rem;
-        }
-        .tagline {
-            font-size: clamp(1.2rem, 4vw, 1.6rem);
-            font-style: italic;
-            max-width: 820px;
-            margin: 0 auto 3rem;
-            opacity: 0.92;
-        }
+        .subtitle { font-family: 'Amatic SC', cursive; font-size: clamp(2rem, 6vw, 3rem); color: var(--soft-gold); margin: 1rem 0 1.8rem; }
+        .tagline { font-size: clamp(1.2rem, 4vw, 1.6rem); font-style: italic; max-width: 820px; margin: 0 auto 3rem; opacity: 0.92; }
 
         .cta a {
             display: inline-block;
@@ -172,10 +159,7 @@
             margin: 4rem auto;
             max-width: 760px;
         }
-        .chapter p {
-            margin-bottom: 1.8rem;
-            opacity: 0.95;
-        }
+        .chapter p { margin-bottom: 1.8rem; opacity: 0.95; }
         .chapter p:first-of-type::first-letter {
             font-size: 3.8em;
             line-height: 0.8;
@@ -184,7 +168,6 @@
             color: var(--gold);
             font-family: 'Cinzel Decorative', cursive;
         }
-
         .continue {
             text-align: center;
             font-style: italic;
@@ -253,28 +236,14 @@
     </header>
 
     <main>
-        <h2 class="chapter-title" id="chapter1">The Cartographer’s Question</h2>
+        <h2 class="chapter-title" id="chapter1">1. The Cartographer’s Question</h2>
 
         <article class="chapter">
             <p>By the time Elias learned to read the creases in a map like a lover reads a face, his hands smelled of salt and old ink. He was neither scholar nor sailor alone; he was a cartographer who could listen to paper and make it speak.</p>
 
-            <p>In a small port where gulls left secrets on rooftops—Clovelly, though the name on no chart felt quite right any longer—Elias met a captain who owned a ship stitched from glass and whale-bone: the Glass-Sailed, a vessel that caught starlight and folded it into sails.</p>
+            <p>In a small port where gulls left secrets on rooftops, Elias met a captain who owned a ship stitched from glass and whale-bone—the Glass-Sailed, a vessel that caught starlight and folded it into sails.</p>
 
-            <p>The captain was tall and quiet, with eyes the colour of tidepools at twilight. He carried no letters of marque, no royal commission, only a single rolled chart that refused to stay flat. When Elias asked where they were bound, the captain unrolled the chart just enough to show a blank space where the world simply ended.</p>
-
-            <p>Then he said the only thing that ever truly mattered:</p>
-
-            <p style="text-align:center; font-style:italic; margin:3rem 0; font-size:1.4em; color:var(--soft-gold);">
-                “We go where the compass forgets.”
-            </p>
-
-            <p>Elias felt the sentence settle inside his ribs like a second heartbeat. He looked at the Glass-Sailed rocking gently against the ancient stone quay, her translucent sails catching the last of the sun and scattering it across the cobbles in soft shards of rose and gold. Somewhere inside the hull a lantern hummed a note too low for human ears and too high for the heart to ignore.</p>
-
-            <p>He thought of every map he had ever drawn—every careful coastline, every mountain measured and named—and realised they had all been love letters to a world that was already leaving.</p>
-
-            <p>Without another word he stepped aboard.</p>
-
-            <p>The ropes slipped from the bollards of their own accord. The harbour gulls rose in a sudden white cloud, as though the sky itself had taken a breath. And the Glass-Sailed Ship, quiet as forgiveness, turned her prow toward the open water where north was only a suggestion and the stars were just beginning to remember their own names.</p>
+            <p>The captain said only one thing that mattered: “We go where the compass forgets.”</p>
         </article>
 
         <div class="continue">
