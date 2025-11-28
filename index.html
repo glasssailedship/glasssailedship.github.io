@@ -166,5 +166,156 @@
     <p>© 2025 • The Cartographer and the Glass-Sailed Ship • A luminous middle-grade fantasy • Coming Spring 2026</p>
 </footer>
 
+    <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Cartographer and the Glass-Sailed Ship</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700&family=Amatic+SC:wght@400;700&family=Cormorant+Garamond:wght@300;400;600&display=swap');
+
+        :root {
+            --midnight: #0b0e17;
+            --deep-sea: #121a2e;
+            --gold: #d4af6a;
+            --soft-gold: #f4e1b8;
+            --starlight: #fffbe6;
+        }
+
+        * { margin:0; padding:0; box-sizing:border-box; }
+        body {
+            font-family: 'Cormorant Garamond', serif;
+            background: var(--midnight);
+            color: var(--starlight);
+            line-height: 1.8;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        /* Twinkling drifting stars */
+        .stars { position: fixed; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; z-index: 0; }
+        .star {
+            position: absolute;
+            background: white;
+            border-radius: 50%;
+            opacity: 0;
+            animation: twinkle linear infinite;
+        }
+        @keyframes twinkle {
+            0%, 100% { opacity: 0; transform: translateY(0) scale(0.8); }
+            50%      { opacity: 1; transform: translateY(-80px) scale(1); }
+        }
+
+        header {
+            min-height: 100vh;
+            background: linear-gradient(135deg, #0b0e17 0%, #1a2345 70%);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            text-align: center;
+            padding: 10vh 5% 5vh;
+            position: relative;
+            z-index: 1;
+        }
+        .title-box h1 {
+            font-family: 'Cinzel Decorative', cursive;
+            font-size: 6rem;
+            color: var(--gold);
+            text-shadow: 0 0 50px rgba(212,175,106,0.5);
+            letter-spacing: 10px;
+            line-height: 1.1;
+        }
+        .subtitle { font-family: 'Amatic SC', cursive; font-size: 2.6rem; color: var(--soft-gold); margin: 1.5rem 0 2rem; }
+        .tagline { font-size: 1.5rem; font-style: italic; max-width: 800px; margin: 0 auto; opacity: 0.9; }
+
+        .cta { padding: 3rem 0; }
+        .btn {
+            display: inline-block;
+            padding: 1.1rem 3.5rem;
+            margin: 0 1rem;
+            background: transparent;
+            color: var(--gold);
+            border: 2px solid var(--gold);
+            border-radius: 50px;
+            font-family: 'Amatic SC', cursive;
+            font-size: 1.7rem;
+            font-weight: 700;
+            text-decoration: none;
+            letter-spacing: 2px;
+            transition: all 0.4s;
+            box-shadow: 0 0 25px rgba(212,175,106,0.3);
+        }
+        .btn:hover { background: var(--gold); color: var(--midnight); box-shadow: 0 0 50px rgba(212,175,106,0.8); transform: translateY(-5px); }
+
+        section { padding: 8rem 5%; max-width: 1000px; margin: 0 auto; text-align: center; position: relative; z-index: 1; }
+        #about { background: rgba(18,26,46,0.7); border-radius: 20px; padding: 4rem; backdrop-filter: blur(6px); }
+        #about h2 { font-family: 'Amatic SC', cursive; font-size: 3.5rem; color: var(--gold); margin-bottom: 2rem; }
+        #about p { font-size: 1.4rem; margin: 1.8rem auto; max-width: 800px; }
+
+        footer { text-align: center; padding: 4rem 2rem; background: var(--deep-sea); font-size: 1rem; letter-spacing: 1px; position: relative; z-index: 1; }
+
+        @media (max-width: 768px) {
+            .title-box h1 { font-size: 4rem; letter-spacing: 5px; }
+            .subtitle { font-size: 2rem; }
+            .btn { font-size: 1.4rem; padding: 1rem 2rem; display: block; margin: 1rem auto; max-width: 280px; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="stars" id="stars"></div>
+
+<header>
+    <div class="title-box">
+        <h1>The Cartographer<br>and the<br>Glass-Sailed Ship</h1>
+        <p class="subtitle">A Lyrical Fantasy for Dreamers of All Ages</p>
+        <p class="tagline">
+            Where maps whisper secrets and stars stitch dreams,<br>
+            one voyage redefines the heart’s true north.
+        </p>
+    </div>
+
+    <div class="cta">
+        <a href="#about" class="btn">Begin the Journey</a>
+        <a href="#" class="btn">Pre-order Now</a>
+    </div>
+</header>
+
+<section id="about">
+    <h2>About the Story</h2>
+    <p>
+        In a world where the sky sometimes forgets its lullabies, twelve-year-old Elias draws maps of places that have never been, 
+        and eleven-year-old Mara tends lanterns that remember every dream ever dreamed.
+    </p>
+    <p>
+        When the last true star begins to fade, they board a ship with sails woven from glass and moonlight. 
+        Together they must sail beyond the edge of every charted sea to find the Song that holds the heavens together — before silence falls forever.
+    </p>
+</section>
+
+<footer>
+    <p>© 2025 • The Cartographer and the Glass-Sailed Ship • A luminous middle-grade fantasy • Coming Spring 2026</p>
+</footer>
+
+<script>
+    // Create 80 gentle drifting stars (just like X)
+    const starsContainer = document.getElementById('stars');
+    for (let i = 0; i < 80; i++) {
+        const star = document.createElement('div');
+        star.className = 'star';
+        const size = Math.random() * 3 + 1;
+        star.style.width = size + 'px';
+        star.style.height = size + 'px';
+        star.style.left = Math.random() * 100 + '%';
+        star.style.top = Math.random() * 100 + '%';
+        star.style.animationDelay = Math.random() * 12 + 's';
+        star.style.animationDuration = Math.random() * 12 + 12 + 's';
+        starsContainer.appendChild(star);
+    }
+</script>
+
+</body>
+</html>
 </body>
 </html>
