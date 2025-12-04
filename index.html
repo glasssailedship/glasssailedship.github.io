@@ -244,9 +244,28 @@
           </div>
         </div>
 
-        <div class="cta">
-            <a href="#chapter1">Begin the Journey</a>
-            <a href="#">Pre-order Now</a>
+                <div class="continue">
+          <p>The Glass-Sailed Ship is waiting beyond this page.<br>Sail the rest of the voyage with Elias and Mara.</p>
+
+          <!-- Lantern waitlist form (bottom) -->
+          <div class="waitlist-section" style="margin-top: 3rem;">
+            <form name="glass-ship-waitlist" method="POST" data-netlify="true" netlify-honeypot="bot-field" id="waitlist-form-bottom">
+              <input type="hidden" name="form-name" value="glass-ship-waitlist" />
+              <p hidden><label>Don’t fill: <input name="bot-field" /></label></p>
+
+              <div class="form-inner">
+                <input type="email" name="email" placeholder="Your email beneath the stars…" required autocomplete="email" />
+                <button type="submit">Light a lantern</button>
+              </div>
+            </form>
+
+            <div id="thank-you-bottom" style="display:none; margin-top:2rem; opacity:0; transition:opacity 1.5s;">
+              <p style="font-size:1.4rem; color:#c8e1e8; font-style:italic;">
+                Thank you — your lantern is lit beneath the stars.<br>
+                I will write the moment the Glass-Sailed Ship is ready to sail.
+              </p>
+            </div>
+          </div>
         </div>
     </header>
 
