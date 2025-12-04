@@ -6,6 +6,27 @@
     <title>The Cartographer and the Glass-Sailed Ship</title>
     <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700&family=Amatic+SC:wght@400;700&family=Cormorant+Garamond:wght@300;400;600&display=swap" rel="stylesheet">
     <style>
+        /* Stars & fireflies over everything */
+.stars, .fireflies {
+  z-index: 1; /* Above body bg, below text/video */
+}
+
+/* Deepen the chapter bg slightly so stars peek through */
+.chapter {
+  background: rgba(11,14,23,0.4); /* Lighter opacity for star visibility */
+  backdrop-filter: blur(10px); /* Soft glow to blend magic */
+}
+
+/* Optional: Subtle star density in main */
+main::before {
+  content: '';
+  position: fixed;
+  top: 0; left: 0; width: 100%; height: 100%;
+  background-image: inherit; /* Inherit stars from .stars */
+  opacity: 0.3; /* Faint in chapter area */
+  z-index: 0;
+  pointer-events: none;
+}
         :root{
             --midnight:#0b0e17;--gold:#d4af6a;--soft-gold:#f4e1b8;--starlight:#fffbe6;
         }
