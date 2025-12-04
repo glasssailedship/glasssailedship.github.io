@@ -326,26 +326,28 @@
 
     <!-- Magic script that shows the thank-you message -->
     <script>
-      document.querySelectorAll('.waitlist-form').forEach(form => {
-        form.addEventListener('submit', function(e) {
-          if (e.target.checkValidity()) {
-            e.preventDefault();
-            fetch('/', {
-              method: 'POST',
-              headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-              body: new URLSearchParams(new FormData(e.target)).toString()
-            }).then(() => {
-              form.style.display = 'none';
-              form.nextElementSibling.style.display = 'block';
-              setTimeout(() => form.nextElementSibling.style.opacity = '1', 50);
-            }).catch(err => {
-              console.error(err);
-              alert('Something went wrong – please try again.');
-            });
-          }
-        });
+  document.querySelectorAll('.waitlist-form').forEach(form => {
+    form.addEventListener('submit', function(e) {
+      e.preventDefault();                       // always prevent default first
+      const formData = new FormData(e.target);
+
+      fetch('/', {
+        method: 'POST',
+        headers: { "Content-Type": "application/x-www-form-urlencoded" },
+        body: new URLSearchParams(formData).toString()
+      })
+      .then(() => {
+        form.style.display = 'none';
+        form.nextElementSibling.style.display = 'block';
+        setTimeout(() => form.nextElementSibling.style.opacity = '1', 50);
+      })
+      .catch(err => {
+        console.error(err);
+        alert('Something went wrong — try again in a moment.');
       });
-    </script>
+    });
+  });
+</script>
 </body>  
 </html>
 
