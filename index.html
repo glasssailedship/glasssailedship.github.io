@@ -220,13 +220,28 @@
     </div>
 
     <header>
-        <div class="title-box">
-            <h1>The Cartographer<br><span>and the</span><br>Glass-Sailed Ship</h1>
-            <p class="subtitle">A Lyrical Fantasy for Dreamers of All Ages</p>
-            <p class="tagline">
-                Where maps whisper secrets and stars stitch dreams,<br>
-                one voyage redefines the heart’s true north.
+                <div class="cta">
+            <a href="#chapter1">Begin the Journey</a>
+        </div>
+
+        <!-- Lantern waitlist form (header) -->
+        <div class="waitlist-section">
+          <form name="glass-ship-waitlist" method="POST" data-netlify="true" netlify-honeypot="bot-field" id="waitlist-form-header">
+            <input type="hidden" name="form-name" value="glass-ship-waitlist" />
+            <p hidden><label>Don’t fill: <input name="bot-field" /></label></p>
+
+            <div class="form-inner">
+              <input type="email" name="email" placeholder="Your email beneath the stars…" required autocomplete="email" />
+              <button type="submit">Light a lantern</button>
+            </div>
+          </form>
+
+          <div id="thank-you-header" style="display:none; margin-top:2rem; opacity:0; transition:opacity 1.5s;">
+            <p style="font-size:1.4rem; color:#c8e1e8; font-style:italic;">
+              Thank you — your lantern is lit beneath the stars.<br>
+              I will write the moment the Glass-Sailed Ship is ready to sail.
             </p>
+          </div>
         </div>
 
         <div class="cta">
