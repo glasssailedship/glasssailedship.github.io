@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" -content="width=device-width, initial-scale=1.0">
     <title>The Cartographer and the Glass-Sailed Ship</title>
     <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700&family=Amatic+SC:wght@400;700&family=Cormorant+Garamond:wght@300;400;600&display=swap" rel="stylesheet">
     <style>
@@ -175,18 +175,6 @@
             margin: 4rem 0;
             opacity: 0.9;
         }
-        .continue a {
-            display: inline-block;
-            margin-top: 1.5rem;
-            padding: 1rem 3rem;
-            background: var(--gold);
-            color: var(--midnight);
-            border-radius: 50px;
-            text-decoration: none;
-            font-family: 'Amatic SC', cursive;
-            font-weight: 700;
-            box-shadow: 0 0 40px rgba(212,175,106,0.7);
-        }
 
         footer {
             text-align: center;
@@ -205,6 +193,50 @@
             text-shadow: 0 0 20px rgba(244,225,184,0.7);
         }
 
+        /* ---------- WAITLIST FORM STYLES ---------- */
+        .waitlist-section { max-width: 580px; margin: 3rem auto; text-align: center; }
+        .form-inner { 
+            display: flex; 
+            gap: 14px; 
+            flex-wrap: wrap; 
+            justify-content: center; 
+            margin-top: 1.5rem;
+        }
+        .waitlist-section input[type="email"] {
+            flex: 1;
+            min-width: 280px;
+            padding: 16px 20px;
+            background: rgba(10,25,45,0.7);
+            border: 1px solid rgba(120,180,200,0.5);
+            border-radius: 12px;
+            color: white;
+            font-family: inherit;
+            font-size: 1.2rem;
+        }
+        .waitlist-section input[type="email"]::placeholder { color: rgba(255,255,255,0.7); }
+        .waitlist-section button {
+            padding: 16px 40px;
+            background: #467a8c;
+            color: white;
+            border: none;
+            border-radius: 12px;
+            cursor: pointer;
+            font-size: 1.2rem;
+            font-weight: 600;
+            transition: background 0.3s;
+        }
+        .waitlist-section button:hover { background: #5a92a8; }
+
+        /* ---------- THANK YOU MESSAGE ---------- */
+        .thank-you {
+            margin-top: 2rem;
+            opacity: 0;
+            transition: opacity 1.5s;
+            font-size: 1.4rem;
+            color: #c8e1e8;
+            font-style: italic;
+        }
+
         @media (max-width: 768px) {
             .cta a { display: block; margin: 1.2rem auto; max-width: 300px; }
             .chapter { padding: 2.5rem 2rem; }
@@ -220,52 +252,33 @@
     </div>
 
     <header>
-                <div class="cta">
+        <div class="title-box">
+            <h1>The Cartographer<br><span>and the</span><br>Glass-Sailed Ship</h1>
+            <p class="subtitle">A Lyrical Fantasy for Dreamers of All Ages</p>
+            <p class="tagline">
+                Where maps whisper secrets and stars stitch dreams,<br>
+                one voyage redefines the heart’s true north.
+            </p>
+        </div>
+
+        <div class="cta">
             <a href="#chapter1">Begin the Journey</a>
         </div>
 
-        <!-- Lantern waitlist form (header) -->
+        <!-- Waitlist form – top of page -->
         <div class="waitlist-section">
-          <form name="glass-ship-waitlist" method="POST" data-netlify="true" netlify-honeypot="bot-field" id="waitlist-form-header">
-            <input type="hidden" name="form-name" value="glass-ship-waitlist" />
-            <p hidden><label>Don’t fill: <input name="bot-field" /></label></p>
-
-            <div class="form-inner">
-              <input type="email" name="email" placeholder="Your email beneath the stars…" required autocomplete="email" />
-              <button type="submit">Light a lantern</button>
-            </div>
-          </form>
-
-          <div id="thank-you-header" style="display:none; margin-top:2rem; opacity:0; transition:opacity 1.5s;">
-            <p style="font-size:1.4rem; color:#c8e1e8; font-style:italic;">
-              Thank you — your lantern is lit beneath the stars.<br>
-              I will write the moment the Glass-Sailed Ship is ready to sail.
-            </p>
-          </div>
-        </div>
-
-                <div class="continue">
-          <p>The Glass-Sailed Ship is waiting beyond this page.<br>Sail the rest of the voyage with Elias and Mara.</p>
-
-          <!-- Lantern waitlist form (bottom) -->
-          <div class="waitlist-section" style="margin-top: 3rem;">
-            <form name="glass-ship-waitlist" method="POST" data-netlify="true" netlify-honeypot="bot-field" id="waitlist-form-bottom">
-              <input type="hidden" name="form-name" value="glass-ship-waitlist" />
-              <p hidden><label>Don’t fill: <input name="bot-field" /></label></p>
-
-              <div class="form-inner">
-                <input type="email" name="email" placeholder="Your email beneath the stars…" required autocomplete="email" />
-                <button type="submit">Light a lantern</button>
-              </div>
+            <form name="glass-ship-waitlist" method="POST" data-netlify="true" netlify-honeypot="bot-field" class="waitlist-form">
+                <input type="hidden" name="form-name" value="glass-ship-waitlist" />
+                <p hidden><label>Don’t fill this out: <input name="bot-field" /></label></p>
+                <div class="form-inner">
+                    <input type="email" name="email" placeholder="Your email beneath the stars…" required autocomplete="email" />
+                    <button type="submit">Light a lantern</button>
+                </div>
             </form>
-
-            <div id="thank-you-bottom" style="display:none; margin-top:2rem; opacity:0; transition:opacity 1.5s;">
-              <p style="font-size:1.4rem; color:#c8e1e8; font-style:italic;">
+            <div class="thank-you" style="display:none;">
                 Thank you — your lantern is lit beneath the stars.<br>
                 I will write the moment the Glass-Sailed Ship is ready to sail.
-              </p>
             </div>
-          </div>
         </div>
     </header>
 
@@ -277,14 +290,28 @@
 
             <p>In a small port where gulls left secrets on rooftops, Elias met a captain who owned a ship stitched from glass and whale-bone—the Glass-Sailed, a vessel that caught starlight and folded it into sails.</p>
 
-            <p>The captain said only one thing that mattered: 
+            <p>The captain said only one thing that mattered:</p>
             <p>“We go where the compass forgets.”</p>
-                
         </article>
 
         <div class="continue">
             <p>The Glass-Sailed Ship is waiting beyond this page.<br>Sail the rest of the voyage with Elias and Mara.</p>
-            <a href="#">Pre-order Now</a>
+
+            <!-- Waitlist form – bottom of page -->
+            <div class="waitlist-section" style="margin-top: 3rem;">
+                <form name="glass-ship-waitlist" method="POST" data-netlify="true" netlify-honeypot="bot-field" class="waitlist-form">
+                    <input type="hidden" name="form-name" value="glass-ship-waitlist" />
+                    <p hidden><label>Don’t fill this out: <input name="bot-field" /></label></p>
+                    <div class="form-inner">
+                        <input type="email" name="email" placeholder="Your email beneath the stars…" required autocomplete="email" />
+                        <button type="submit">Light a lantern</button>
+                    </div>
+                </form>
+                <div class="thank-you" style="display:none;">
+                    Thank you — your lantern is lit beneath the stars.<br>
+                    I will write the moment the Glass-Sailed Ship is ready to sail.
+                </div>
+            </div>
         </div>
     </main>
 
@@ -296,5 +323,27 @@
         </div>
     </footer>
 
+    <!-- Magic script that shows the thank-you message -->
+    <script>
+      document.querySelectorAll('.waitlist-form').forEach(form => {
+        form.addEventListener('submit', function(e) {
+          if (e.target.checkValidity()) {
+            e.preventDefault();
+            fetch('/', {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+              body: new URLSearchParams(new FormData(e.target)).toString()
+            }).then(() => {
+              form.style.display = 'none';
+              form.nextElementSibling.style.display = 'block';
+              setTimeout(() => form.nextElementSibling.style.opacity = '1', 50);
+            }).catch(err => {
+              console.error(err);
+              alert('Something went wrong – please try again.');
+            });
+          }
+        });
+      });
+    </script>
 </body>
 </html>
