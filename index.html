@@ -14,17 +14,39 @@
             font-family:'Cormorant Garamond',serif;color:var(--starlight);line-height:1.9;
             min-height:100vh;background:#0b0e17;overflow-x:hidden;
        SCM
-        /* stars & fireflies stay exactly as you had them */
-        .stars{position:fixed;inset:0;pointer-events:none;z-index:1;background-image:radial-gradient(2px 2px at 15% 20%,#fffbe6,transparent),radial-gradient(2px 2px at 87% 12%,#fffbe6,transparent),radial-gradient(3px 3px at 42% 8%,#fff,transparent),radial-gradient(1px 1px at 69% 28%,#fffbe6,transparent),radial-gradient(2px 2px at 23% 45%,#fffbe6,transparent),radial-gradient(3px 3px at 91% 58%,#fff,transparent),radial-gradient(1px 1px at 8% 72%,#fffbe6,transparent),radial-gradient(2px 2px at 55% 15%,#fffbe6,transparent),radial-gradient(2px 2px at 33% 68%,#fffbe6,transparent),radial-gradient(3px 3px at 78% 42%,#fff,transparent),radial-gradient(1px 1px at 12% 35%,#fffbe6,transparent),radial-gradient(2px 2px at 95% 80%,#fffbe6,transparent),radial-gradient(2px 2px at 48% 92%,#fffbe6,transparent),radial-gradient(3px 3px at 60% 5%,#fff,transparent),radial-gradient(1px 1px at 20% 88%,#fffbe6,transparent),radial-gradient(2px 2px at 82% 30%,#fffbe6,transparent);background-repeat:no-repeat;background-size:200vw 200vh;opacity:.9}
-        .fireflies{position:fixed;inset:0;pointer-events:none;z-index:1}
-        .firefly{position:absolute;width:2px;height:2px;background:#fffbe6;border-radius:50%;box-shadow:0 0 8px 2px #f4e1b8;opacity:0}
-        .firefly:nth-child(1){top:15%;left:12%;animation:twinkle 18s infinite 2s}
-        .firefly:nth-child(2){top:38%;left:78%;animation:twinkle 22s infinite 7s}
-        .firefly:nth-child(3){top:62%;left:35%;animation:twinkle 25s infinite 12s}
-        .firefly:nth-child(4){top:25%;left:90%;animation:twinkle 20s infinite 4s}
-        .firefly:nth-child(5){top:80%;left:20%;animation:twinkle 28s infinite 9s}
-        .firefly:nth-child(6){top:45%;left:55%;animation:twinkle 19s infinite 15s}
-        @keyframes twinkle{0%,100%{opacity:0;transform:scale(0)}20%{opacity:.9;transform:scale(1)}40%{opacity:.3;transform:scale(1.4)}60%{opacity:.8;transform:scale(1)}}
+        /* Bring back the stars */
+.stars{
+    position:fixed;inset:0;pointer-events:none;z-index:1;
+    background-image:
+        radial-gradient(2px 2px at 15% 20%,#fffbe6,transparent),
+        radial-gradient(2px 2px at 87% 12%,#fffbe6,transparent),
+        radial-gradient(3px 3px at 42% 8%,#fff,transparent),
+        radial-gradient(1px 1px at 69% 28%,#fffbe6,transparent),
+        radial-gradient(2px 2px at 23% 45%,#fffbe6,transparent),
+        radial-gradient(3px 3px at 91% 58%,#fff,transparent),
+        radial-gradient(1px 1px at 8% 72%,#fffbe6,transparent),
+        radial-gradient(2px 2px at 55% 15%,#fffbe6,transparent),
+        radial-gradient(2px 2px at 33% 68%,#fffbe6,transparent),
+        radial-gradient(3px 3px at 78% 42%,#fff,transparent),
+        radial-gradient(1px 1px at 12% 35%,#fffbe6,transparent),
+        radial-gradient(2px 2px at 95% 80%,#fffbe6,transparent),
+        radial-gradient(2px 2px at 48% 92%,#fffbe6,transparent),
+        radial-gradient(3px 3px at 60% 5%,#fff,transparent),
+        radial-gradient(1px 1px at 20% 88%,#fffbe6,transparent),
+        radial-gradient(2px 2px at 82% 30%,#fffbe6,transparent);
+    background-repeat:no-repeat;background-size:200vw 200vh;opacity:.9;
+}
+
+/* Bring back the fireflies */
+.fireflies{position:fixed;inset:0;pointer-events:none;z-index:1}
+.firefly{position:absolute;width:2px;height:2px;background:#fffbe6;border-radius:50%;box-shadow:0 0 8px 2px #f4e1b8;opacity:0}
+.firefly:nth-child(1){top:15%;left:12%;animation:twinkle 18s infinite 2s}
+.firefly:nth-child(2){top:38%;left:78%;animation:twinkle 22s infinite 7s}
+.firefly:nth-child(3){top:62%;left:35%;animation:twinkle 25s infinite 12s}
+.firefly:nth-child(4){top:25%;left:90%;animation:twinkle 20s infinite 4s}
+.firefly:nth-child(5){top:80%;left:20%;animation:twinkle 28s infinite 9s}
+.firefly:nth-child(6){top:45%;left:55%;animation:twinkle 19s infinite 15s}
+@keyframes twinkle{0%,100%{opacity:0;transform:scale(0)}20%{opacity:.9;transform:scale(1)}40%{opacity:.3;transform:scale(1.4)}60%{opacity:.8;transform:scale(1)}}
 
         /* VIDEO HERO */
         .video-header{position:relative;min-height:100vh;overflow:hidden}
@@ -54,6 +76,44 @@
         .chapter{font-size:clamp(1.25rem,4vw,1.5rem);background:rgba(11,14,23,.6);padding:3.5rem 4rem;border-radius:20px;backdrop-filter:blur(6px);box-shadow:0 10px 40px rgba(0,0,0,.4);margin:4rem auto;max-width:760px}
         footer{text-align:center;padding:5rem 2rem 3rem;background:rgba(15,26,46,.8)}
         @media(max-width:768px){.cta a{display:block;margin:1.2rem auto;max-width:300px}.chapter{padding:2.5rem 2rem}}
+            /* Lantern button — magical hover glow */
+.waitlist-section button {
+  position: relative;
+  overflow: hidden;
+  transition: all 0.4s ease;
+}
+
+.waitlist-section button::before {
+  content: '';
+  position: absolute;
+  top: 50%; left: 50%;
+  width: 0; height: 0;
+  background: radial-gradient(circle, rgba(244,225,184,0.6) 0%, transparent 70%);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  transition: width 0.6s ease, height 0.6s ease;
+  pointer-events: none;
+  z-index: -1;
+}
+
+.waitlist-section button:hover::before,
+.waitlist-section button:focus::before {
+  width: 300px;
+  height: 300px;
+}
+
+.waitlist-section button:hover {
+  background: #5a92a8;
+  box-shadow: 0 0 25px rgba(244,225,184,0.8);
+  transform: translateY(-2px);
+}
+            @keyframes lanternFlicker {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.92; }
+}
+.waitlist-section button:hover {
+  animation: lanternFlicker 1.8s infinite;
+}
     </style>
 </head>
 <body>
