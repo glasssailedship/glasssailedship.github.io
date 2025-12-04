@@ -6,135 +6,97 @@
     <title>The Cartographer and the Glass-Sailed Ship</title>
     <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700&family=Amatic+SC:wght@400;700&family=Cormorant+Garamond:wght@300;400;600&display=swap" rel="stylesheet">
     <style>
-        /* Stars & fireflies over everything */
-.stars, .fireflies {
-  z-index: 1; /* Above body bg, below text/video */
-}
-
-/* Deepen the chapter bg slightly so stars peek through */
-.chapter {
-  background: rgba(11,14,23,0.4); /* Lighter opacity for star visibility */
-  backdrop-filter: blur(10px); /* Soft glow to blend magic */
-}
-
-/* Optional: Subtle star density in main */
-main::before {
-  content: '';
-  position: fixed;
-  top: 0; left: 0; width: 100%; height: 100%;
-  background-image: inherit; /* Inherit stars from .stars */
-  opacity: 0.3; /* Faint in chapter area */
-  z-index: 0;
-  pointer-events: none;
-}
         :root{
             --midnight:#0b0e17;--gold:#d4af6a;--soft-gold:#f4e1b8;--starlight:#fffbe6;
         }
         *{margin:0;padding:0;box-sizing:border-box}
         body{
-            font-family:'Cormorant Garamond',serif;color:var(--starlight);line-height:1.9;
-            min-height:100vh;background:#0b0e17;overflow-x:hidden;
-       SCM
-        /* Bring back the stars */
-.stars{
-    position:fixed;inset:0;pointer-events:none;z-index:1;
-    background-image:
-        radial-gradient(2px 2px at 15% 20%,#fffbe6,transparent),
-        radial-gradient(2px 2px at 87% 12%,#fffbe6,transparent),
-        radial-gradient(3px 3px at 42% 8%,#fff,transparent),
-        radial-gradient(1px 1px at 69% 28%,#fffbe6,transparent),
-        radial-gradient(2px 2px at 23% 45%,#fffbe6,transparent),
-        radial-gradient(3px 3px at 91% 58%,#fff,transparent),
-        radial-gradient(1px 1px at 8% 72%,#fffbe6,transparent),
-        radial-gradient(2px 2px at 55% 15%,#fffbe6,transparent),
-        radial-gradient(2px 2px at 33% 68%,#fffbe6,transparent),
-        radial-gradient(3px 3px at 78% 42%,#fff,transparent),
-        radial-gradient(1px 1px at 12% 35%,#fffbe6,transparent),
-        radial-gradient(2px 2px at 95% 80%,#fffbe6,transparent),
-        radial-gradient(2px 2px at 48% 92%,#fffbe6,transparent),
-        radial-gradient(3px 3px at 60% 5%,#fff,transparent),
-        radial-gradient(1px 1px at 20% 88%,#fffbe6,transparent),
-        radial-gradient(2px 2px at 82% 30%,#fffbe6,transparent);
-    background-repeat:no-repeat;background-size:200vw 200vh;opacity:.9;
-}
+            font-family:'Cormorant Garamond',serif;
+            color:var(--starlight);
+            line-height:1.9;
+            min-height:100vh;
+            background:#0b0e17;
+            overflow-x:hidden;
+        }
 
-/* Bring back the fireflies */
-.fireflies{position:fixed;inset:0;pointer-events:none;z-index:1}
-.firefly{position:absolute;width:2px;height:2px;background:#fffbe6;border-radius:50%;box-shadow:0 0 8px 2px #f4e1b8;opacity:0}
-.firefly:nth-child(1){top:15%;left:12%;animation:twinkle 18s infinite 2s}
-.firefly:nth-child(2){top:38%;left:78%;animation:twinkle 22s infinite 7s}
-.firefly:nth-child(3){top:62%;left:35%;animation:twinkle 25s infinite 12s}
-.firefly:nth-child(4){top:25%;left:90%;animation:twinkle 20s infinite 4s}
-.firefly:nth-child(5){top:80%;left:20%;animation:twinkle 28s infinite 9s}
-.firefly:nth-child(6){top:45%;left:55%;animation:twinkle 19s infinite 15s}
-@keyframes twinkle{0%,100%{opacity:0;transform:scale(0)}20%{opacity:.9;transform:scale(1)}40%{opacity:.3;transform:scale(1.4)}60%{opacity:.8;transform:scale(1)}}
+        /* Stars */
+        .stars{
+            position:fixed;inset:0;pointer-events:none;z-index:1;
+            background-image:
+                radial-gradient(2px 2px at 15% 20%,#fffbe6,transparent),
+                radial-gradient(2px 2px at 87% 12%,#fffbe6,transparent),
+                radial-gradient(3px 3px at 42% 8%,#fff,transparent),
+                radial-gradient(1px 1px at 69% 28%,#fffbe6,transparent),
+                radial-gradient(2px 2px at 23% 45%,#fffbe6,transparent),
+                radial-gradient(3px 3px at 91% 58%,#fff,transparent),
+                radial-gradient(1px 1px at 8% 72%,#fffbe6,transparent),
+                radial-gradient(2px 2px at 55% 15%,#fffbe6,transparent),
+                radial-gradient(2px 2px at 33% 68%,#fffbe6,transparent),
+                radial-gradient(3px 3px at 78% 42%,#fff,transparent),
+                radial-gradient(1px 1px at 12% 35%,#fffbe6,transparent),
+                radial-gradient(2px 2px at 95% 80%,#fffbe6,transparent),
+                radial-gradient(2px 2px at 48% 92%,#fffbe6,transparent),
+                radial-gradient(3px 3px at 60% 5%,#fff,transparent),
+                radial-gradient(1px 1px at 20% 88%,#fffbe6,transparent),
+                radial-gradient(2px 2px at 82% 30%,#fffbe6,transparent);
+            background-repeat:no-repeat;background-size:200vw 200vh;opacity:.9;
+        }
 
-        /* VIDEO HERO */
+        /* Fireflies */
+        .fireflies{position:fixed;inset:0;pointer-events:none;z-index:1}
+        .firefly{position:absolute;width:2px;height:2px;background:#fffbe6;border-radius:50%;box-shadow:0 0 8px 2px #f4e1b8;opacity:0}
+        .firefly:nth-child(1){top:15%;left:12%;animation:twinkle 18s infinite 2s}
+        .firefly:nth-child(2){top:38%;left:78%;animation:twinkle 22s infinite 7s}
+        .firefly:nth-child(3){top:62%;left:35%;animation:twinkle 25s infinite 12s}
+        .firefly:nth-child(4){top:25%;left:90%;animation:twinkle 20s infinite 4s}
+        .firefly:nth-child(5){top:80%;left:20%;animation:twinkle 28s infinite 9s}
+        .firefly:nth-child(6){top:45%;left:55%;animation:twinkle 19s infinite 15s}
+        @keyframes twinkle{
+            0%,100%{opacity:0;transform:scale(0)}
+            20%{opacity:.9;transform:scale(1)}
+            40%{opacity:.3;transform:scale(1.4)}
+            60%{opacity:.8;transform:scale(1)}
+        }
+
+        /* Video Hero */
         .video-header{position:relative;min-height:100vh;overflow:hidden}
         #heroVideo{position:absolute;top:50%;left:50%;min-width:100%;min-height:100%;width:auto;height:auto;transform:translate(-50%,-50%);z-index:-1;object-fit:cover}
         .video-overlay{position:relative;z-index:2;display:flex;flex-direction:column;justify-content:space-between;min-height:100vh;padding:12vh 5% 8vh;text-align:center}
 
-        /* rest of your existing styles (title, cta, waitlist, etc.) stay unchanged */
+        /* Typography & Buttons */
         .title-box h1{font-family:'Cinzel Decorative',cursive;font-size:clamp(3.5rem,10vw,7rem);color:var(--gold);text-shadow:0 0 60px rgba(212,175,106,.5);letter-spacing:8px;line-height:1.15}
         .title-box h1 span{font-size:.56em;letter-spacing:4px;opacity:.9}
         .subtitle{font-family:'Amatic SC',cursive;font-size:clamp(2rem,6vw,3rem);color:var(--soft-gold);margin:1rem 0 1.8rem}
         .tagline{font-size:clamp(1.2rem,4vw,1.6rem);font-style:italic;max-width:820px;margin:0 auto 3rem;opacity:.92}
-        .cta a{display:inline-block;padding:1.1rem 3.2rem;margin:0 1rem;background:transparent;color:var(--gold);border:2px solid var(--gold);border-radius:50px;font-family:'Amatic SC',cursive;font-size:clamp(1.4rem,4vw,1.8rem);font-weight:700;text-decoration:none;letter-spacing:2px;transition:all .45s;box-shadow:0 0 30px rgba(212,175,106,.3)}
+        .cta a{display:inline-block;padding:1.1rem 3.2rem;margin:2rem 1rem 0;background:transparent;color:var(--gold);border:2px solid var(--gold);border-radius:50px;font-family:'Amatic SC',cursive;font-size:clamp(1.4rem,4vw,1.8rem);font-weight:700;text-decoration:none;letter-spacing:2px;transition:all .45s;box-shadow:0 0 30px rgba(212,175,106,.3)}
         .cta a:hover{background:var(--gold);color:var(--midnight);box-shadow:0 0 60px rgba(212,175,106,.9);transform:translateY(-6px)}
 
-        /* waitlist styles (unchanged) */
+        /* Chapter styling */
+        main,footer{position:relative;z-index:2}
+        main{max-width:860px;margin:0 auto;padding:10rem 5% 8rem;text-align:center}
+        .chapter-title{font-family:'Amatic SC',cursive;font-size:clamp(3rem,8vw,4.5rem);color:var(--gold);margin:2rem 0 3rem;text-shadow:0 0 30px rgba(212,175,106,.4)}
+        .chapter{font-size:clamp(1.25rem,4vw,1.5rem);background:rgba(11,14,23,.5);padding:3.5rem 4rem;border-radius:20px;backdrop-filter:blur(10px);box-shadow:0 10px 40px rgba(0,0,0,.4);margin:4rem auto;max-width:760px;position:relative;z-index:2}
+        
+        /* Waitlist (only the lower one remains) */
         .waitlist-section{max-width:580px;margin:3rem auto;text-align:center}
         .form-inner{display:flex;gap:14px;flex-wrap:wrap;justify-content:center;margin-top:1.5rem}
         .waitlist-section input[type=email]{flex:1;min-width:280px;padding:16px 20px;background:rgba(10,25,45,.7);border:1px solid rgba(120,180,200,.5);border-radius:12px;color:white;font-size:1.2rem}
         .waitlist-section input[type=email]::placeholder{color:rgba(255,255,255,.7)}
-        .waitlist-section button{padding:16px 40px;background:#467a8c;color:white;border:none;border-radius:12px;cursor:pointer;font-size:1.2rem;font-weight:600;transition:background .3s}
-        .waitlist-section button:hover{background:#5a92a8}
+        .waitlist-section button{padding:16px 40px;background:#467a8c;color:white;border:none;border-radius:12px;cursor:pointer;font-size:1.2rem;font-weight:600;position:relative;overflow:hidden;transition:all .4s}
+        .waitlist-section button::before{content:'';position:absolute;inset:0;background:radial-gradient(circle at center,rgba(244,225,184,.35),transparent 65%);border-radius:inherit;opacity:0;transform:scale(.8);transition:transform .6s,opacity .6s}
+        .waitlist-section button:hover::before{opacity:1;transform:scale(1.4)}
+        .waitlist-section button:hover{background:#5a92a8;box-shadow:0 0 25px rgba(244,225,184,.8);transform:translateY(-2px);animation:lanternFlicker 1.8s infinite}
+        @keyframes lanternFlicker{0%,100%{opacity:1}50%{opacity:.92}}
         .thank-you{margin-top:2rem;opacity:0;transition:opacity 1.5s;font-size:1.4rem;color:#c8e1e8;font-style:italic}
 
-        main,footer{ position:relative;z-index:2 }
-        main{max-width:860px;margin:0 auto;padding:10rem 5% 8rem;text-align:center}
-        .chapter-title{font-family:'Amatic SC',cursive;font-size:clamp(3rem,8vw,4.5rem);color:var(--gold);margin:2rem 0 3rem;text-shadow:0 0 30px rgba(212,175,106,.4)}
-        .chapter{font-size:clamp(1.25rem,4vw,1.5rem);background:rgba(11,14,23,.6);padding:3.5rem 4rem;border-radius:20px;backdrop-filter:blur(6px);box-shadow:0 10px 40px rgba(0,0,0,.4);margin:4rem auto;max-width:760px}
         footer{text-align:center;padding:5rem 2rem 3rem;background:rgba(15,26,46,.8)}
-        @media(max-width:768px){.cta a{display:block;margin:1.2rem auto;max-width:300px}.chapter{padding:2.5rem 2rem}}
-            /* Lantern button — magical hover glow */
-.waitlist-section button {
-  position: relative;
-  overflow: hidden;
-  transition: all 0.4s ease;
-}
+        footer a{color:var(--soft-gold);margin:0 1rem;text-decoration:none}
+        footer a:hover{text-decoration:underline}
 
-.waitlist-section button::before {
-  content: '';
-  position: absolute;
-  top: 50%; left: 50%;
-  width: 0; height: 0;
-  background: radial-gradient(circle, rgba(244,225,184,0.6) 0%, transparent 70%);
-  border-radius: 50%;
-  transform: translate(-50%, -50%);
-  transition: width 0.6s ease, height 0.6s ease;
-  pointer-events: none;
-  z-index: -1;
-}
-
-.waitlist-section button:hover::before,
-.waitlist-section button:focus::before {
-  width: 300px;
-  height: 300px;
-}
-
-.waitlist-section button:hover {
-  background: #5a92a8;
-  box-shadow: 0 0 25px rgba(244,225,184,0.8);
-  transform: translateY(-2px);
-}
-            @keyframes lanternFlicker {
-  0%, 100% { opacity: 1; }
-  50% { opacity: 0.92; }
-}
-.waitlist-section button:hover {
-  animation: lanternFlicker 1.8s infinite;
-}
+        @media(max-width:768px){
+            .cta a{display:block;margin:2rem auto;max-width:300px}
+            .chapter{padding:2.5rem 2rem}
+        }
     </style>
 </head>
 <body>
@@ -145,10 +107,9 @@ main::before {
         <div class="firefly"></div><div class="firefly"></div><div class="firefly"></div>
     </div>
 
-    <!-- VIDEO HERO -->
+    <!-- VIDEO HERO (no waitlist at top) -->
     <header class="video-header">
-        
-        <video autoplay muted loop playsinline id="heroVideo" preload="auto">
+        <video autoplay muted loop playsinline id="heroVideo" preload="auto" poster="fallback-starry-night.jpg">
             <source src="hero-video.mp4" type="video/mp4">
         </video>
 
@@ -165,25 +126,10 @@ main::before {
             <div class="cta">
                 <a href="#chapter1">Begin the Journey</a>
             </div>
-
-            <div class="waitlist-section">
-                <form name="glass-ship-waitlist" method="POST" data-netlify="true" netlify-honeypot="bot-field" class="waitlist-form">
-                    <input type="hidden" name="form-name" value="glass-ship-waitlist">
-                    <p hidden><label>Don’t fill: <input name="bot-field"></label></p>
-                    <div class="form-inner">
-                        <input type="email" name="email" placeholder="Your email beneath the stars…" required autocomplete="email">
-                        <button type="submit">Light a lantern</button>
-                    </div>
-                </form>
-                <div class="thank-you" style="display:none;">
-                    Thank you — your lantern is lit beneath the stars.<br>
-                    I will write the moment the Glass-Sailed Ship is ready to sail.
-                </div>
-            </div>
         </div>
     </header>
 
-    <!-- rest of your page (main, footer, script) unchanged -->
+    <!-- Chapter teaser + single waitlist below -->
     <main>
         <h2 class="chapter-title" id="chapter1">1. The Cartographer’s Question</h2>
         <article class="chapter">
@@ -195,17 +141,19 @@ main::before {
 
         <div class="continue">
             <p>The Glass-Sailed Ship is waiting beyond this page.<br>Sail the rest of the voyage with Elias and Mara.</p>
+            
             <div class="waitlist-section" style="margin-top:3rem;">
                 <form name="glass-ship-waitlist" method="POST" data-netlify="true" netlify-honeypot="bot-field" class="waitlist-form">
                     <input type="hidden" name="form-name" value="glass-ship-waitlist">
                     <p hidden><label>Don’t fill: <input name="bot-field"></label></p>
                     <div class="form-inner">
                         <input type="email" name="email" placeholder="Your email beneath the stars…" required autocomplete="email">
-                        <button type="submit">Light a lantern</button>
+                        <button type="submit" aria-label="Join the waitlist">Light a lantern</button>
                     </div>
                 </form>
-                <div class="thank-you" style="display:none;">
-                    Thank you — your lantern is lit beneath the stars.<br>I will write the moment the Glass-Sailed Ship is ready to sail.
+                <div class="thank-you" role="alert" style="display:none;">
+                    Thank you — your lantern is lit beneath the stars.<br>
+                    I will write the moment the Glass-Sailed Ship is ready to sail.
                 </div>
             </div>
         </div>
@@ -230,9 +178,10 @@ main::before {
                     body: new URLSearchParams(formData).toString()
                 }).then(() => {
                     form.style.display = 'none';
-                    form.nextElementSibling.style.display = 'block';
-                    setTimeout(() => form.nextElementSibling.style.opacity = '1', 50);
-                });
+                    const thanks = form.nextElementSibling;
+                    thanks.style.display = 'block';
+                    setTimeout(() => thanks.style.opacity = '1', 50);
+                }).catch(err => console.error(err));
             });
         });
     </script>
