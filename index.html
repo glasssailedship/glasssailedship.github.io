@@ -71,6 +71,29 @@
         .cta a{display:inline-block;padding:1.1rem 3.2rem;margin:2rem 1rem 0;background:transparent;color:var(--gold);border:2px solid var(--gold);border-radius:50px;font-family:'Amatic SC',cursive;font-size:clamp(1.4rem,4vw,1.8rem);font-weight:700;text-decoration:none;letter-spacing:2px;transition:all .45s;box-shadow:0 0 30px rgba(212,175,106,.3)}
         .cta a:hover{background:var(--gold);color:var(--midnight);box-shadow:0 0 60px rgba(212,175,106,.9);transform:translateY(-6px)}
 
+/* ——— Mobile-friendly title ——— */
+@media (max-width: 768px) {
+    .title-box h1 {
+        font-size: clamp(2.5rem, 8vw, 5rem);   /* much more reasonable */
+        letter-spacing: 4px;                  /* reduce spacing on small screens */
+        line-height: 1.2;
+    }
+    
+    .title-box h1 span {
+        letter-spacing: 2px;                  /* tighten the smaller span too */
+    }
+
+    /* Optional: remove the forced <br> breaks on very small screens */
+    @media (max-width: 480px) {
+        .title-box h1 br { display: none; }
+        .title-box h1 {
+            font-size: clamp(2rem, 7.5vw, 4rem);
+            display: block;
+        }
+        .title-box h1 span::before { content: "\a"; white-space: pre; } /* keeps "and the" on its own line */
+    }
+}
+        
         /* Chapter styling */
         main,footer{position:relative;z-index:2}
         main{max-width:860px;margin:0 auto;padding:10rem 5% 8rem;text-align:center}
