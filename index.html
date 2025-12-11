@@ -193,22 +193,40 @@
     </footer>
 
     <script>
-        document.querySelectorAll('.waitlist-form').forEach(form => {
-            form.addEventListener('submit', e => {
-                e.preventDefault();
-                const formData = new FormData(e.target);
-                fetch('/', {
-                    method: 'POST',
-                    headers: { "Content-Type": "application/x-www-form-urlencoded" },
-                    body: new URLSearchParams(formData).toString()
-                }).then(() => {
+    const form = document.querySelector('.waitlist-form');
+    const thanks = document.querySelector('.thank-you');
+
+    if (form) {
+        form.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const button = form.querySelector('button');
+            const originalText = button.innerHTML;
+            button.innerHTML = 'Lighting...';
+            button.disabled = true;
+
+            fetch(form.action, {
+                method: 'POST',
+                body: new FormData(form),
+                headers: {
+                    'Accept': 'application/json'
+                }
+            }).then(response => {
+                if (response.ok) {
                     form.style.display = 'none';
-                    const thanks = form.nextElementSibling;
                     thanks.style.display = 'block';
                     setTimeout(() => thanks.style.opacity = '1', 50);
-                }).catch(err => console.error(err));
+                } else {
+                    alert('Oops—something went wrong. Try again?');
+                }
+            }).catch(() => {
+                alert('Connection issue—please try again later.');
+            }).finally(() => {
+                button.innerHTML = originalText;
+                button.disabled = false;
             });
         });
-    </script>
+    }
+</script>
 </body>
 </html>
