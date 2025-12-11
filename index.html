@@ -152,7 +152,7 @@
         </div>
     </header>
 
-    <!-- Chapter teaser + single waitlist below -->
+        <!-- Chapter teaser + single waitlist below -->
     <main>
         <h2 class="chapter-title" id="chapter1">1. The Cartographer’s Question</h2>
         <article class="chapter">
@@ -165,23 +165,24 @@
         <div class="continue">
             <p>The Glass-Sailed Ship is waiting beyond this page.<br>Sail the rest of the voyage with Elias and Mara.</p>
             
-           <div class="waitlist-section" style="margin-top:3rem;">
-    <form action="https://formspree.io/f/mpwvojjp" method="POST" class="waitlist-form">
-        <!-- Honeypot for spam protection (hidden from users) -->
-        <div style="position:absolute; left:-9999px;">
-            <input type="text" name="_gotcha" tabindex="-1" autocomplete="off">
+            <div class="waitlist-section" style="margin-top:3rem;">
+                <form action="https://formspree.io/f/mpwvojjp" method="POST" class="waitlist-form">
+                    <!-- Honeypot for spam protection -->
+                    <div style="position:absolute; left:-9999px;">
+                        <input type="text" name="_gotcha" tabindex="-1" autocomplete="off">
+                    </div>
+                    
+                    <div class="form-inner">
+                        <input type="email" name="email" placeholder="Your email beneath the stars…" required autocomplete="email">
+                        <button type="submit" aria-label="Join the waitlist">Light a lantern</button>
+                    </div>
+                </form>
+                <div class="thank-you" role="alert" style="display:none; opacity:0;">
+                    Thank you — your lantern is lit beneath the stars.<br>
+                    I will write the moment the Glass-Sailed Ship is ready to sail.
+                </div>
+            </div>
         </div>
-        
-        <div class="form-inner">
-            <input type="email" name="email" placeholder="Your email beneath the stars…" required autocomplete="email">
-            <button type="submit" aria-label="Join the waitlist">Light a lantern</button>
-        </div>
-    </form>
-    <div class="thank-you" role="alert" style="display:none; opacity:0;">
-        Thank you — your lantern is lit beneath the stars.<br>
-        I will write the moment the Glass-Sailed Ship is ready to sail.
-    </div>
-</div>
     </main>
 
     <footer>
@@ -193,40 +194,49 @@
     </footer>
 
     <script>
-    const form = document.querySelector('.waitlist-form');
-    const thanks = document.querySelector('.thank-you');
+        const form = document.querySelector('.waitlist-form');
+        const thanks = document.querySelector('.thank-you');
 
-    if (form) {
-        form.addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            const button = form.querySelector('button');
-            const originalText = button.innerHTML;
-            button.innerHTML = 'Lighting...';
-            button.disabled = true;
+        if (form && thanks) {
+            form.addEventListener('submit', function(e) {
+                e.preventDefault();
 
-            fetch(form.action, {
-                method: 'POST',
-                body: new FormData(form),
-                headers: {
-                    'Accept': 'application/json'
-                }
-            }).then(response => {
-                if (response.ok) {
-                    form.style.display = 'none';
-                    thanks.style.display = 'block';
-                    setTimeout(() => thanks.style.opacity = '1', 50);
-                } else {
-                    alert('Oops—something went wrong. Try again?');
-                }
-            }).catch(() => {
-                alert('Connection issue—please try again later.');
-            }).finally(() => {
-                button.innerHTML = originalText;
-                button.disabled = false;
+                const button = form.querySelector('button');
+                const originalText = button.innerHTML;
+                button.innerHTML = 'Lighting...';
+                button.disabled = true;
+
+                fetch(form.action, {
+                    method: 'POST',
+                    body: new FormData(form),
+                    headers: {
+                        'Accept': 'application/json'
+                    }
+                })
+                .then(response => {
+                    if (response.ok) {
+                        form.style.display = 'none';
+                        thanks.style.display = 'block';
+                        setTimeout(() => thanks.style.opacity = '1', 50);
+                    } else {
+                        response.json().then(data => {
+                            alert(data.error || 'Something went wrong—please try again.');
+                        }).catch(() => {
+                            alert('Something went wrong—please try again.');
+                        });
+                    }
+                })
+                .catch(() => {
+                    alert('Connection issue—please check your network and try again.');
+                })
+                .finally(() => {
+                    button.innerHTML = originalText;
+                    button.disabled = false;
+                });
             });
-        });
-    }
-</script>
+        }
+    </script>
+</body>
+</html>
 </body>
 </html>
